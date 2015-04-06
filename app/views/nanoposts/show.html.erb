@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @nanopost.user %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @nanopost.content %>
+</p>
+
+<%= link_to 'Edit', edit_nanopost_path(@nanopost) %> |
+<%= link_to 'Back', nanoposts_path %>

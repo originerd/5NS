@@ -5,5 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.select(:id, :email, :name).find(params[:id])
+    @nanoposts = @user.nanoposts.paginate(page: params[:page])
   end
 end

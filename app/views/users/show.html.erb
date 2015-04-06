@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.nanoposts.any? %>
+      <h3>Nanoposts (<%= @user.nanoposts.count %>)</h3>
+      <ol class="nanoposts">
+        <%= render @nanoposts %>
+      </ol>
+      <%= will_paginate @nanoposts %>
+    <% end %>
+  </div>
 </div>

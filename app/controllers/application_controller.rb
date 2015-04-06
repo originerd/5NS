@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  # Send 'em back where they came from with a slap on the wrist
+  def authority_forbidden(error)
+    Authority.logger.warn(error.message)
+    redirect_to request.referrer.presence || root_path, :alert => '사용자 인증에 실패하였습니다.'
+  end
+
   protected
 
   # for adding user name attribute to Devise gem
