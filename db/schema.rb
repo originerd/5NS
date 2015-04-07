@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406175253) do
+ActiveRecord::Schema.define(version: 20150407041713) do
 
   create_table "nanoposts", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "picture"
   end
 
   add_index "nanoposts", ["user_id", "created_at"], name: "index_nanoposts_on_user_id_and_created_at"

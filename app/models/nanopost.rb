@@ -3,10 +3,13 @@ class Nanopost < ActiveRecord::Base
   include Authority::Abilities
 
   belongs_to :user
+  default_scope -> { order(created_at: :desc) }
+  mount_uploader :picture, PictureUploader
 
   validates :user_id, presence: true
   validates :content, presence: true
   validate  :check_content
+  validate  :picture_size
 
   private
 
@@ -16,6 +19,13 @@ class Nanopost < ActiveRecord::Base
   def check_content
     unless content.delete("?!").size == 5
       errors.add(:content, "다섯 글자로만 작성할 수 있습니다.")
+    end
+  end
+
+  # Validates the size of an uploaded picture.
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "5메가바이트 이하의 사진만 올릴 수 있습니다.")
     end
   end
 end

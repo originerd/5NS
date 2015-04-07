@@ -37,6 +37,6 @@ class NanopostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def nanopost_params
-    params.require(:nanopost).permit(:user_id, :content)
+    params.require(:nanopost).permit(:content, :picture)
   end
 end

@@ -17,9 +17,10 @@ gem 'devise'
 gem 'rolify'
 gem 'authority'
 
-# for datepicker
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+# fore image upload
+gem 'carrierwave',             '0.10.0'
+gem 'mini_magick',             '3.8.0'
+gem 'fog',                     '1.23.0'
 
 group :development, :test do
   gem 'guard-minitest',           '2.3.1'

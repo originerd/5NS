@@ -1,7 +1,10 @@
 <li id="nanopost-<%= nanopost.id %>">
   <%= link_to gravatar_for(nanopost.user, size: 50), nanopost.user %>
   <span class="user"><%= link_to nanopost.user.name, nanopost.user %></span>
-  <span class="content"><%= nanopost.content %></span>
+  <span class="content">
+    <%= nanopost.content %>
+    <%= image_tag nanopost.picture.url if nanopost.picture? %>
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(nanopost.created_at) %> ago.
     <% if current_user == nanopost.user %>
