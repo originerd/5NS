@@ -5,7 +5,7 @@
     <%= nanopost.content %>
     <% if nanopost.picture? %>
       <%= link_to nanopost.picture.url, class: "image-link" do %>
-        <%= image_tag nanopost.picture.url, class: "img-responsive" %>
+        <%= image_tag nanopost.picture.url, class: "img-responsive img-max-height" %>
       <% end %>
     <% end %>
   </span>
