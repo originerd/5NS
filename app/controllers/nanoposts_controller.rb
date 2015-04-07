@@ -25,7 +25,7 @@ class NanopostsController < ApplicationController
     authorize_action_for @nanopost
     @nanopost.destroy
     flash[:success] = '글이 삭제되었습니다.'
-    redirect_to 'static_pages/home'
+    redirect_to root_path
   end
 
   private

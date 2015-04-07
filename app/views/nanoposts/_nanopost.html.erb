@@ -3,7 +3,11 @@
   <span class="user"><%= link_to nanopost.user.name, nanopost.user %></span>
   <span class="content">
     <%= nanopost.content %>
-    <%= image_tag nanopost.picture.url if nanopost.picture? %>
+    <% if nanopost.picture? %>
+      <%= link_to nanopost.picture.url, class: "image-link" do %>
+        <%= image_tag nanopost.picture.url, class: "img-responsive" %>
+      <% end %>
+    <% end %>
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(nanopost.created_at) %> ago.

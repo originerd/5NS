@@ -17,10 +17,13 @@ gem 'devise'
 gem 'rolify'
 gem 'authority'
 
-# fore image upload
+# for image upload
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
 gem 'fog',                     '1.23.0'
+
+# fore image resize
+gem 'magnific-popup-rails'
 
 group :development, :test do
   gem 'guard-minitest',           '2.3.1'
