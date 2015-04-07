@@ -17,7 +17,7 @@ class Nanopost < ActiveRecord::Base
 
   # content size validation (5 characters)
   def check_content
-    unless content.delete("?!").size == 5
+    unless content.delete("?! ").size == 5
       errors.add(:content, "다섯 글자로만 작성할 수 있습니다.")
     end
   end
