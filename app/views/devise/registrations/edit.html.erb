@@ -1,45 +1,59 @@
-<% provide(:title, "Edit User") %>
-<h1>Edit <%= resource_name.to_s.humanize %></h1>
+<% provide(:title, "정보 수정") %>
+<h1>정보 수정</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      <div class="field">
+        <%= f.label :name, "이름(닉네임)" %><br />
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :profile, "상태 메시지" %><br />
+        <%= f.text_field :profile, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, "이메일 주소" %><br />
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password, "비밀번호" %> <i>(수정을 원하지 않으면 비워두세요.)</i><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "비밀번호 확인" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, "현재 비밀번호" %> <i>(수정을 위해 필요합니다.)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "수정", class: "btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
+
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target=_blank>프로필 이미지 변경</a>
+    </div>
+
+    <h3>탈퇴</h3>
+
+    <p>5NS가 마음에 안드세요? <%= button_to "탈퇴", registration_path(resource_name), data: { confirm: "정말 탈퇴하시겠어요?" }, method: :delete, class: "btn btn-danger" %></p>
+
+    <%= link_to "뒤로", :back %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, class: "form-control" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update", class: "btn btn-lg btn-primary" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

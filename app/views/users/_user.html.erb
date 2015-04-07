@@ -1,4 +1,5 @@
 <li>
   <%= gravatar_for user, size: 50 %>
-  <%= link_to user.name, user %>
+  <%= link_to user.name, user, class: "user-name" %>
+  <span class="user-profile"><%= user.profile if user.profile? %></span>
 </li>
