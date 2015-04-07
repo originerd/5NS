@@ -10,9 +10,11 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
+    <section>
+      <%= render 'follow_form' if user_signed_in? %>
+    </section>
   </aside>
   <div class="col-md-8">
-    <%= render 'follow_form' if user_signed_in? %>
     <% if @user.nanoposts.any? %>
       <h3>Nanoposts (<%= @user.nanoposts.count %>)</h3>
       <ol class="nanoposts">
