@@ -68,7 +68,7 @@ p {
 
 #logo {
   float: left;
-  margin-right: 10px;
+  margin-left: 15px;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
@@ -281,6 +281,7 @@ input {
 .users {
   list-style: none;
   margin: 0;
+  padding: 0;
   li {
     overflow: auto;
     padding: 10px 0;
