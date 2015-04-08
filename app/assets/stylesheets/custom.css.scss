@@ -95,15 +95,28 @@ p {
   background-color: #428bca;
 }
 
-.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-  color: white;
+.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+  background-color: white;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+  background-color: #428bca;
+}
+
+.dropdown-menu > li > a {
+  color: #222222;
   &:hover {
-    color: #222222;
+    color: #3498db;
   }
 }
 
-.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
-  background-color: white;
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: white;
+    &:hover {
+      color: #222222;
+    }
+  }  
 }
 
 /* footer */
