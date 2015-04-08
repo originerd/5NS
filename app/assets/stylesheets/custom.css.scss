@@ -135,6 +135,7 @@ footer {
     margin-left: 60px;
     .content-image {
       display: block;
+      text-align: center;
       .img-responsive {
         display: inline;
         max-height: 600px;
@@ -295,3 +296,9 @@ input {
   }
 }
 
+/* Pagination */
+
+div.pagination {
+  display: block;
+  text-align: center;
+}
