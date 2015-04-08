@@ -95,10 +95,6 @@ p {
   background-color: #428bca;
 }
 
-.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
-  background-color: white;
-}
-
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
   background-color: #428bca;
 }
@@ -111,6 +107,10 @@ p {
 }
 
 @media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+    background-color: white;
+  }
+
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
     color: white;
     &:hover {
