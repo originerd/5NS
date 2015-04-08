@@ -4,9 +4,11 @@
   <span class="content">
     <%= nanopost.content %>
     <% if nanopost.picture? %>
-      <%= link_to nanopost.picture.url, class: "image-link" do %>
-        <%= image_tag nanopost.picture.url, class: "img-responsive img-max-height" %>
-      <% end %>
+      <span class="content-image">
+        <%= link_to nanopost.picture.url, class: "image-link" do %>
+          <%= image_tag nanopost.picture.url, class: "img-responsive" %>
+        <% end %>
+      </span>
     <% end %>
   </span>
   <span class="timestamp">
