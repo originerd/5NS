@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'likes/create'
+
+  get 'likes/destroy'
+
   root                'static_pages#home'
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
@@ -10,6 +14,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :nanoposts, only: [:index, :show, :create, :destroy]
+  resources :nanoposts, only: [:index, :show, :create, :destroy] do
+    resource :likes, only: [:create, :destroy]
+  end
   resources :relationships, only: [:create, :destroy]
 end
