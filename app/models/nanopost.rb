@@ -36,6 +36,6 @@ class Nanopost < ActiveRecord::Base
   # Squeeze '!? '
   def squeeze_content
     content.gsub!(/[?! ]{2,}/) { |match| match.split('').uniq.join }
-    content.chomp!
+    content.strip!
   end
 end
