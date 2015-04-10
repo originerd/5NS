@@ -194,6 +194,15 @@ footer {
   }
 }
 
+/* like */
+
+div[id^="like-form"] {
+  display: inline;
+  form {
+    display: inline;
+  }
+}
+
 /* sidebar */
 
 aside {

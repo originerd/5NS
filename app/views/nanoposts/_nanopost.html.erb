@@ -3,15 +3,9 @@
   <span class="user"><%= link_to nanopost.user.name, nanopost.user %></span>
   <span class="content">
     <%= nanopost.content %>
-    <% if user_signed_in? %>
-      <div id="likes_form-<%= nanopost.id %>">
-        <% if nanopost.likes.find_by(user: current_user).present? %>
-          <%= render 'nanoposts/unlike', nanopost: nanopost %>
-        <% else %>
-          <%= render 'nanoposts/like', nanopost: nanopost %>
-        <% end %>
-      </div>
-    <% end %>
+    <div id="like-form-<%= nanopost.id %>">
+      <%= render 'nanoposts/like_form', nanopost: nanopost %>
+    </div>
     <% if nanopost.picture? %>
       <span class="content-image">
         <%= link_to nanopost.picture.url, class: "image-link" do %>
