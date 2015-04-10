@@ -11,6 +11,8 @@ class Nanopost < ActiveRecord::Base
   validate  :check_content
   validate  :picture_size
 
+  before_save :squeeze_content
+
   private
 
   # validation
@@ -27,5 +29,12 @@ class Nanopost < ActiveRecord::Base
     if picture.size > 5.megabytes
       errors.add(:picture, "5메가바이트 이하의 사진만 올릴 수 있습니다.")
     end
+  end
+
+  # before save filter
+
+  # Squeeze '!? '
+  def squeeze_content
+    content.squeeze!("?! ")
   end
 end

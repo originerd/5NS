@@ -1,7 +1,10 @@
 <%= link_to gravatar_for(current_user, size: 50), current_user %>
-<h1><%= current_user.name %></h1>
+<h1>
+  <%= link_to current_user.name, current_user %>
+  <a href="<%= edit_user_registration_path %>" class="btn btn-default btn-xs">
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+  </a>
+</h1>
 <% if current_user.profile? %>
   <p><%= current_user.profile %></p>
 <% end %>
-<span><%= link_to "내 정보 보기", current_user %> | <%= link_to "내 정보 수정", edit_user_registration_path %> </span>
-<span><%= "#{current_user.nanoposts.count}개의 글" %></span>

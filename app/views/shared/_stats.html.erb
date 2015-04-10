@@ -1,12 +1,13 @@
 <% @user ||= current_user %>
-<div class="stats">
-  <a href="<%= following_user_path(@user) %>">
+<div class="btn-group">
+  <%= link_to "#{@user.nanoposts.count} 글", @user, class: "btn btn-default" %>
+  <a href="<%= following_user_path(@user) %>" class="btn btn-default">
     <strong id="following" class="stat">
       <%= @user.following.count %>
     </strong>
-    팔로우
+    팔로잉
   </a>
-  <a href="<%= followers_user_path(@user) %>">
+  <a href="<%= followers_user_path(@user) %>" class="btn btn-default">
     <strong id="followers" class="stat">
       <%= @user.followers.count %>
     </strong>

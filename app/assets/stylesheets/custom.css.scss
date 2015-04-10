@@ -167,10 +167,12 @@ footer {
   .user {
     margin-top: 5em;
     padding-top: 0;
+    font-size: 1.2em;
   }
   .content {
     display: block;
     margin-left: 60px;
+    font-size: 3.5em;
     .content-image {
       display: block;
       text-align: center;
@@ -238,21 +240,14 @@ span.picture {
 }
 
 .stats {
+  text-align: center;
   overflow: auto;
   margin-top: 0;
-  padding: 0;
   a {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
     color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
     &:hover {
       text-decoration: none;
-      color: blue;
+      color: #3498db;
     }
   }
 }
