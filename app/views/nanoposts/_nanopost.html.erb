@@ -3,11 +3,14 @@
   <span class="user"><%= link_to nanopost.user.name, nanopost.user %></span>
   <span class="content">
     <%= nanopost.content %>
-    <% if nanopost.likes.find_by(user: current_user).present? %>
-      <%= link_to "<span class=\"glyphicon glyphicon-thumbs-up\" aria-hidden=\"true\"></span> #{nanopost.likes.count}".html_safe, nanopost_likes_path(nanopost), method: :delete, class: "btn btn-primary btn-xs" %>
-    <% else %>
-      <%= link_to "<span class=\"glyphicon glyphicon-thumbs-up\" aria-hidden=\"true\"></span> #{nanopost.likes.count}".html_safe, nanopost_likes_path(nanopost), method: :create, class: "btn btn-default btn-xs" %>
-      </a>
+    <% if user_signed_in? %>
+      <div id="likes_form-<%= nanopost.id %>">
+        <% if nanopost.likes.find_by(user: current_user).present? %>
+          <%= render 'nanoposts/unlike', nanopost: nanopost %>
+        <% else %>
+          <%= render 'nanoposts/like', nanopost: nanopost %>
+        <% end %>
+      </div>
     <% end %>
     <% if nanopost.picture? %>
       <span class="content-image">

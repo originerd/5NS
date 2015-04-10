@@ -1,0 +1,2 @@
+$("#likes_form-<%= @nanopost.id %>").html("<%= escape_javascript(render 'nanoposts/like', nanopost: @nanopost) %>")
+$("#likes-<%= @nanopost.id %>").html('<%= @nanopost.likes.count %>')

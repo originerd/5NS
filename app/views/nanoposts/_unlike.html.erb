@@ -1,0 +1,5 @@
+<%= form_for(nanopost.likes.find_by(user: current_user), url: nanopost_likes_path(nanopost), html: { method: :delete }, remote: true) do |f| %>
+  <button type="submit" class="btn btn-primary btn-xs">
+    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> <span id="likes-<%= nanopost.id %>"><%= nanopost.likes.count %></span>
+  </button>
+<% end %>
