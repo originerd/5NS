@@ -54,5 +54,5 @@ ko:
       not_found: "을(를) 찾을 수 없습니다"
       not_locked: "was not locked"
       not_saved:
-        one: "%{resource}에 한 개의 에러가 저장하는 동안 발생했습니다:"
-        other: "%{resource}에 %{count} 개의 에러가 저장하는 동안 발생했습니다:"
+        one: "한 개의 에러가 발생했습니다:"
+        other: "%{count} 개의 에러가 발생했습니다:"
