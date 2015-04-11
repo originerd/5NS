@@ -155,6 +155,15 @@ footer {
   @include box_sizing;
 }
 
+/* flash(alert) */
+
+#alert-top {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 100;
+}
+
 /* nanoposts */
 
 .nanoposts {
