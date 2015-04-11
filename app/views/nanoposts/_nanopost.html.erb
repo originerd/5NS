@@ -15,9 +15,9 @@
     <% end %>
   </span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(nanopost.created_at) %> ago.
+    <%= time_ago_in_words(nanopost.created_at) %> 전에 작성.
     <% if current_user == nanopost.user %>
-      <%= link_to "delete", nanopost, method: :delete,
+      <%= link_to "삭제", nanopost, method: :delete,
                                       data: { confirm: "정말 삭제하시겠습니까?" } %>
     <% end %>
   </span>

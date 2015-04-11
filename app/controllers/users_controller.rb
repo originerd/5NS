@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:following, :followers]
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], :per_page => 15)
   end
 
   def show
     @user = User.find(params[:id])
-    @nanoposts = @user.nanoposts.paginate(page: params[:page])
+    @nanoposts = @user.nanoposts.paginate(page: params[:page], :per_page => 15)
   end
 
   def following
