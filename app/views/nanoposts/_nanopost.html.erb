@@ -16,7 +16,7 @@
   </span>
   <span class="timestamp">
     <%= time_ago_in_words(nanopost.created_at) %> 전에 작성
-    <% unless block_given? %>
+    <% unless request.fullpath == nanopost_path(nanopost) %>
       <a href="<%= nanopost_path(nanopost) %>" class="btn btn-info btn-xs">
         <span class="glyphicon glyphicon-pencil"></span> <%= nanopost.comments.count %>
       </a>
