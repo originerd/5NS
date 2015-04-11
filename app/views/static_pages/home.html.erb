@@ -15,6 +15,7 @@
       <h3>글 목록</h3>
       <%= render 'shared/feed' %>
     </div>
+    <%= will_paginate @feed_items %>
   </div>
 <% else %>
   <div class="center jumbotron">
