@@ -7,6 +7,7 @@ class NanopostsController < ApplicationController
   end
 
   def show
+    @user = @nanopost.user
   end
 
   def create

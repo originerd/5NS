@@ -1,34 +1,36 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= gravatar_for @user %>
-      <h1>
-        <%= link_to @user.name, @user %> 
-        <% if current_user == @user %>
-          <a href="<%= edit_user_registration_path %>" class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-          </a>
-      <% end %>
-      </h1>
-      <% if @user.profile? %>
-        <p><%= @user.profile %></p>
-      <% end %>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-    <section>
-      <%= render 'follow_form' if user_signed_in? %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <% if @user.nanoposts.any? %>
-      <h3>글 목록 (<%= @user.nanoposts.count %>)</h3>
-      <ol class="nanoposts">
-        <%= render @nanoposts %>
-      </ol>
-    <% end %>
+<header>
+  <section class="user_info">
+    <%= render 'shared/user_info' %>
+  </section>
+  <section class="stats">
+    <%= render 'shared/stats' %>
+  </section>
+</header>
+<div class="container margin-top margin-bottom">
+  <div class="row">
+    <aside class="col-md-3">
+      <div class="inner-box">
+        <section>
+          <%= render 'follow_form' if user_signed_in? %>
+        </section>
+      </div>
+    </aside>
+    <div class="col-md-6">
+      <div class="inner-box">
+        <% if @user.nanoposts.any? %>
+          <h3>글 목록 (<%= @user.nanoposts.count %>)</h3>
+          <ol class="nanoposts">
+            <%= render @nanoposts %>
+          </ol>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="inner-box">
+        
+      </div>
+    </div>
   </div>
   <%= will_paginate @nanoposts %>
 </div>

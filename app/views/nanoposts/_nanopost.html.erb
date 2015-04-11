@@ -15,7 +15,12 @@
     <% end %>
   </span>
   <span class="timestamp">
-    <%= time_ago_in_words(nanopost.created_at) %> 전에 작성.
+    <%= time_ago_in_words(nanopost.created_at) %> 전에 작성
+    <% unless block_given? %>
+      <a href="<%= nanopost_path(nanopost) %>" class="btn btn-info btn-xs">
+        <span class="glyphicon glyphicon-pencil"></span> <%= nanopost.comments.count %>
+      </a>
+    <% end %>
     <% if current_user == nanopost.user %>
       <%= link_to "삭제", nanopost, method: :delete,
                                       data: { confirm: "정말 삭제하시겠습니까?" } %>

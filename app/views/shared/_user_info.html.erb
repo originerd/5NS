@@ -1,10 +1,13 @@
-<%= link_to gravatar_for(current_user, size: 50), current_user %>
+<% @user ||= current_user %>
+<%= link_to gravatar_for(@user, size: 256, header: true), @user %>
 <h1>
-  <%= link_to current_user.name, current_user %>
-  <a href="<%= edit_user_registration_path %>" class="btn btn-default btn-xs">
-    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-  </a>
+  <%= link_to @user.name, @user %>
+  <% if @user == current_user %>
+    <a href="<%= edit_user_registration_path %>" class="btn btn-default btn-xs">
+      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    </a>
+  <% end %>
 </h1>
-<% if current_user.profile? %>
-  <p><%= current_user.profile %></p>
+<% if @user.profile? %>
+  <span class="profile"><%= @user.profile %></span>
 <% end %>
