@@ -342,7 +342,6 @@ span.picture {
 
 .user_avatars {
   overflow: auto;
-  margin-top: 10px;
   .gravatar {
     margin: 1px 1px;
   }
@@ -407,6 +406,9 @@ input {
     overflow: auto;
     padding: 10px 0;
     border-top: 1px solid $gray-lighter;
+    &:first-child {
+      border: 0;
+    }
     .user-name {
       font-size: 1.3em;
       display: block;

@@ -9,14 +9,14 @@
 </header>
 <div class="container margin-top margin-bottom">
   <div class="row">
-    <aside class="col-md-3">
+    <aside class="col-md-3 col-padding-7">
       <div class="inner-box">
         <section>
           <%= render 'follow_form' if user_signed_in? %>
         </section>
       </div>
     </aside>
-    <div class="col-md-6">
+    <div class="col-md-6 col-padding-7">
       <div class="inner-box">
         <% if @user.nanoposts.any? %>
           <h3>글 목록 (<%= @user.nanoposts.count %>)</h3>
@@ -26,7 +26,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-padding-7">
       <div class="inner-box">
         
       </div>

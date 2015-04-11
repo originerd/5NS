@@ -5,7 +5,7 @@ ko:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "이미 로그인하셨습니다."
+      already_authenticated: "이미 로그인 하셨습니다."
       inactive: "Your account is not activated yet."
       invalid: "%{authentication_keys} 혹은 비밀번호가 올바르지 않습니다."
       locked: "Your account is locked."
@@ -39,9 +39,9 @@ ko:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "계정 정보 수정을 하였습니다."
     sessions:
-      signed_in: "로그인을 하였습니다."
-      signed_out: "로그아웃을 하였습니다."
-      already_signed_out: "로그아웃을 하였습니다."
+      signed_in: "로그인 하였습니다."
+      signed_out: "로그아웃 하였습니다."
+      already_signed_out: "로그아웃 하였습니다."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

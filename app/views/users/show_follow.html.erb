@@ -1,38 +1,42 @@
 <% provide(:title, @title) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= gravatar_for @user %>
-      <h1>
-        <%= link_to @user.name, @user %>
-        <% if current_user == @user %>
-          <a href="<%= edit_user_registration_path %>" class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-          </a>
-      <% end %>
-      </h1>
-      <% if @user.profile? %>
-        <p><%= @user.profile %></p>
-      <% end %>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-      <% if @users.any? %>
-        <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
+<header>
+  <section class="user_info">
+    <%= render 'shared/user_info' %>
+  </section>
+  <section class="stats">
+    <%= render 'shared/stats' %>
+  </section>
+</header>
+<div class="container margin-top margin-bottom">
+  <div class="row">
+    <aside class="col-md-3 col-padding-7">
+      <div class="inner-box">
+        <section class="stats">
+          <% if @users.any? %>
+            <div class="user_avatars">
+              <% @users.each do |user| %>
+                <%= link_to gravatar_for(user, size: 30), user %>
+              <% end %>
+            </div>
           <% end %>
-        </div>
-      <% end %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-        <%= render @users %>
-      </ul>
-      <%= will_paginate %>
-    <% end %>
+        </section>
+      </div>
+    </aside>
+    <div class="col-md-6 col-padding-7">
+      <div class="inner-box">
+        <h3><%= @title %></h3>
+        <% if @users.any? %>
+          <ul class="users follow">
+            <%= render @users %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3 col-padding-7">
+      <div class="inner-box">
+        
+      </div>
+    </div>
   </div>
+  <%= will_paginate %>
 </div>
