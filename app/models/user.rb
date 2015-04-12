@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :nanoposts, dependent: :destroy
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",

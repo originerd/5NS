@@ -1,5 +1,7 @@
 <li id="nanopost-<%= nanopost.id %>">
-  <%= link_to gravatar_for(nanopost.user, size: 50), nanopost.user %>
+  <div class="avatar avatar-thumb">
+    <%= avatar_for(nanopost.user) %>
+  </div>
   <span class="user"><%= link_to nanopost.user.name, nanopost.user %></span>
   <span class="content">
     <%= nanopost.content %>

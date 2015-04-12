@@ -1,11 +1,11 @@
 # encoding: utf-8
 
-class PictureUploader < CarrierWave::Uploader::Base
+class AvatarUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
+ # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_limit: [1024, 1024]
+  process resize_to_fill: [256, 256]
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?

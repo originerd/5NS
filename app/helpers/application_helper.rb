@@ -11,15 +11,13 @@ module ApplicationHelper
   end
 
   # Returns the Gravatar for the given user.
-  def gravatar_for(user, options = { size: 80 })
-    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
-    size = options[:size]
-    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-    if options[:header] == true
-      image_tag(gravatar_url, alt: user.name, class: "img-circle")
+  def avatar_for(user, options = { type: 'rounded' })
+    if user.avatar.present?
+      url = user.avatar.url
     else
-      image_tag(gravatar_url, alt: user.name, class: "gravatar")
+      url = 'default_avatar.png'
     end
+    image_tag(url, alt: user.name, class: "img-responsive img-#{options[:type]}")
   end
 
   # Replace devise's alert name to bootstrap's

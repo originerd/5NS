@@ -1,5 +1,7 @@
 <% @user ||= current_user %>
-<%= link_to gravatar_for(@user, size: 256, header: true), @user %>
+<div class="avatar-info">
+  <%= avatar_for(@user, type: 'circle') %>
+</div>
 <h1>
   <%= link_to @user.name, @user %>
   <% if @user == current_user %>

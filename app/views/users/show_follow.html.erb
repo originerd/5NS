@@ -15,7 +15,9 @@
           <% if @users.any? %>
             <div class="user_avatars">
               <% @users.each do |user| %>
-                <%= link_to gravatar_for(user, size: 30), user %>
+                <div class="avatar-thumb">
+                  <%= link_to avatar_for(user), user %>
+                </div>
               <% end %>
             </div>
           <% end %>
