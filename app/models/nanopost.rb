@@ -22,8 +22,8 @@ class Nanopost < ActiveRecord::Base
 
   # content size validation (5 characters)
   def check_content
-    content.gsub!(/[^0-9a-zA-Z가-힣ㄱ-ㅎㅜㅠㅡ ?!]/, '')
-    unless content.delete("ㅜㅠㅡ ?!").size == 5
+    content.gsub!(/[^0-9a-zA-Z가-힣ㄱ-ㅎㅜㅠㅡ ?!~\^]/, '')
+    unless content.delete("ㅜㅠㅡ ?!~\^").size == 5
       errors.add(:content, "는 다섯 글자로만 작성할 수 있습니다.")
     end
   end
@@ -39,8 +39,8 @@ class Nanopost < ActiveRecord::Base
 
   # Squeeze '!? '
   def squeeze_content
-    content.gsub!(/[ㅜㅠㅡ ?!]{2,}/) { |match| match.split('').uniq.join }
-    content.gsub!(/([ㅜㅠㅡ])/, '\1' * 2)
+    content.gsub!(/[ㅜㅠㅡ ?!~\^]{2,}/) { |match| match.split('').uniq.join }
+    content.gsub!(/([ㅜㅠㅡ\^])/, '\1' * 2)
     content.strip!
   end
 end
