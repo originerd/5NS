@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  default_scope -> { order(created_at: :desc) }
+
   mount_uploader :avatar, AvatarUploader
 
   has_many :nanoposts, dependent: :destroy
@@ -45,6 +47,10 @@ class User < ActiveRecord::Base
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def like_count
+    self.nanoposts.map { |x| x.likes.count }.inject(:+)
   end
 
   private
