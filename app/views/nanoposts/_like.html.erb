@@ -1,5 +1,13 @@
-<%= form_for(nanopost.likes.build, url: nanopost_likes_path(nanopost), remote: true) do |f| %>
-  <button type="submit" class="btn btn-default btn-xs">
-    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> <span id="likes-<%= nanopost.id %>"><%= nanopost.likes.count %></span>
-  </button>
+<% if user_signed_in? %>
+  <%= form_for(nanopost.likes.build, url: nanopost_likes_path(nanopost), remote: true) do |f| %>
+    <button type="submit" class="btn btn-default btn-xs">
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> <span id="likes-<%= nanopost.id %>"><%= nanopost.likes.count %></span>
+    </button>
+  <% end %>
+<% else %>
+  <%= form_for(nanopost.likes.build, url: nanopost_likes_path(nanopost)) do |f| %>
+    <button type="submit" class="btn btn-default btn-xs">
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> <span id="likes-<%= nanopost.id %>"><%= nanopost.likes.count %></span>
+    </button>
+  <% end %>
 <% end %>
