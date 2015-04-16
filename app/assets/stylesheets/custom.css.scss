@@ -288,6 +288,54 @@ div[id^="like-form"] {
   }
 }
 
+/* comment */
+
+.comment-form {
+  display: block;
+  .row {
+    padding: 15px;
+  }
+  .col-md-10 {
+    padding: 0;
+  }
+  .form-group {
+    margin: 0;
+  }
+  .form-group input {
+    width: 100%;
+    margin: 0;
+  }
+  button {
+  }
+}
+
+.comments {
+  display: block;
+  list-style: none;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    &:first-child {
+      border: 0;
+    }
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+    font-size: 1em;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    font-size: 1.5em;
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+}
+
 /* sidebar */
 
 aside {

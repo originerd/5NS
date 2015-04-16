@@ -8,6 +8,8 @@ class NanopostsController < ApplicationController
 
   def show
     @user = @nanopost.user
+    @comment = current_user.comments.build
+    @comments = @nanopost.comments
   end
 
   def create

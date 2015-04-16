@@ -14,6 +14,20 @@
         <ol class="nanoposts">
           <%= render @nanopost %>
         </ol>
+          <div class="comment-form">
+            <%= form_for(@comment, url: nanopost_comments_path(@nanopost)) do |f| %>
+              <%= render 'shared/error_messages', object: f.object %>
+              <div class="row">
+                <div class="form-group col-md-10">
+                  <%= f.text_field :content, placeholder: "다섯 글자로 나누는 이야기", class: "form-control" %>
+                </div>
+                <button type="submit" class="btn btn-default col-md-2 col-sm-12 col-xs-12">작성</button>
+              </div>
+            <% end %>
+        </div>
+        <ol class="comments">
+          <%= render @comments %>
+        </ol>
       </div>
     </div>
   </div>

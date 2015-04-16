@@ -15,7 +15,8 @@ Rails.application.routes.draw do
     end
   end
   resources :nanoposts, only: [:index, :show, :create, :destroy] do
-    resource :likes, only: [:create, :destroy]
+    resources :likes,    only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
 end

@@ -1,0 +1,16 @@
+<li id="comment-<%= comment.id %>">
+  <div class="avatar avatar-thumb">
+    <%= avatar_for(comment.user) %>
+  </div>
+  <span class="user"><%= link_to comment.user.name, comment.user %></span>
+  <span class="content">
+    <%= comment.content %>
+  </span>
+  <span class="timestamp">
+    <%= time_ago_in_words(comment.created_at) %> 전에 작성
+    <% if current_user == comment.user %>
+      <%= link_to "삭제", nanopost_comment_path(comment.nanopost_id, comment.id), method: :delete,
+                                      data: { confirm: "정말 삭제하시겠습니까?" } %>
+    <% end %>
+  </span>
+</li>
