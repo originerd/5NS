@@ -26,10 +26,8 @@ gem 'fog',                     '1.23.0'
 gem 'magnific-popup-rails'
 
 group :development, :test do
-  gem 'guard-minitest',           '2.3.1'
-  gem 'terminal-notifier-guard',  '1.6.4'
-  gem 'terminal-notifier',        '1.6.2'
-  gem 'minitest-reporters',       '1.0.5'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'sqlite3',                  '1.3.9'
   gem 'byebug',                   '3.4.0'
   gem 'web-console',              '~> 2.0'
@@ -37,11 +35,13 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest',       '5.5.1'
-  gem 'mini_backtrace', '0.1.3'
+  gem 'ffaker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :production do
-  gem 'pg',             '0.17.1'
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
