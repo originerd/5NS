@@ -25,6 +25,6 @@ production:
   encoding: unicode
   database: db_5ns
   username: postgres
-  host: localhost
+  host: db
   port: 5432
   pool: 15
